@@ -1,3 +1,11 @@
-   [workspace]
-   members = ["crates/*"]
-   resolver = "2"
+[workspace]
+members = ["crates/*"]
+resolver = "2"
+
+[workspace.dependencies]
+winit = { version = "0.30.13", default-features = false, features = ["rwh_06", "wayland", "wayland-dlopen", "x11"] }
+wgpu = { version = "30.0.1", default-features = false, features = ["std", "parking_lot", "wgsl", "vulkan", "dx12"] }
+pollster = "1.0.1"
+log = "0.4.34"
+env_logger = "0.11.11"
+anyhow = "1.0.104"
