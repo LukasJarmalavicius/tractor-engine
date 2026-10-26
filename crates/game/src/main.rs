@@ -50,6 +50,11 @@ impl ApplicationHandler for App {
                     r.resize(size.width, size.height);
                 }
             }
+            WindowEvent::CursorMoved { position, .. } => {
+                if let Some(r) = &mut self.renderer {
+                    r.set_clear_color(position.x / 1280.0, position.y / 720.0);
+                }
+            }
             WindowEvent::RedrawRequested => {
                 if let Some(r) = &mut self.renderer {
                     r.render().unwrap();
